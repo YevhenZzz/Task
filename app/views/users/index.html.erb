@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="UTF-8">
+<head>
+  <style>
+      .table {
+          border: 0.1px #666666;
+          width: 900px;
+          margin-left: auto;
+          margin-right: auto;
+          margin-bottom: 20px;
+          background-color: lightgrey;
+      }
+      .table thead th {
+          border: 0.1px #666666;;
+          color: white;
+          font-weight: bold;
+          text-align: left;
+          padding: 10px 15px;
+          background: #292929;
+          font-family: "Helvetica Neue", Helvetica, Arial, Sans-Serif;
+          font-size: 14px;
+      }
+      .table tbody td {
+          border: 0.1px  #666666;
+          font-family: "Helvetica Neue", Helvetica, Arial, Sans-Serif;
+          text-align: left;
+          padding: 10px 15px;
+          font-size: 14px;
+          vertical-align: top;
+      }
+
+      .table tbody tr:nth-child(odd){
+          background: white;
+      }
+
+      .table tbody tr:nth-child(even){
+          background: #f3f3f3;
+      }
+
+  </style>
+  <%= stylesheet_link_tag "myCss"%>
+</head>
+<body>
+<p style="color: green"><%= notice %></p>
+
+
+<h1 style="text-align: center">Data to perform CRUD Operations</h1>
+<div>
+<%= button_to "Create new user", new_user_path, :action => "offer_bid", form_class: "myButton"%>
+
+<table class="table">
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>Username</th>
+    <th>Email</th>
+    <th>Password</th>
+    <th colspan="3">CRUD operations</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @users.each do |user| %>
+  <tr>
+    <td><%= user.__id__ %></td>
+    <td><%= user.user_name%></td>
+    <td><%= user.email%></td>
+    <td><%= user.password %></td>
+    <td> <%= button_to  "View", user %></td></div>
+      <td><%= button_to "Edit", user%></td>
+      <td><%= button_to "Delete", user%></td>
+  </tr>
+  <% end %>
+  </tbody>
+</table>
+  </div>
+<br><br><br>
+<button style="background-color: orange; color: black; border-radius: 8px; padding: 10px 14px; border: none;
+  font-family: Sans-Serif; margin: 0 auto; display: block">Back</button>
+</body>
+</html>
